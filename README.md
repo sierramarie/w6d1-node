@@ -46,9 +46,9 @@ select sum(quantity) from orders;
 2,125
 
 8.<!--How much was spent on books?-->
-select sum(price) from items where category like '%books%';
-59,241
-
+select items.category from items where category like '%Books%';
+select sum((items.price * orders.quantity) / 100) as total from orders join items on items.id = orders.item_id where items.category like '%Books%';
+10799
 
 9.<!--Simulate buying an item by inserting a User for yourself and an Order for that User.-->
 
